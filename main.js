@@ -96,29 +96,46 @@ const main = ({ navigation }) => {
     }
 
     return (
-        <View style={{backgroundColor:'red', flex:1, padding:20}}>
-            <Text style={{fontSize:20, fontWeight:'bold', color:'red'}}>main</Text>
+        <View style={{ backgroundColor: 'red', flex: 1, padding: 20 }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'red' }}>main</Text>
             <TextInput
-            placeholder='Nhap gmail'
-            placeholderTextColor='#88888888'
-            style={{borderWidth:1, borderRadius:20, width:300, height:30}}
-            onChangeText={setGmail}
-            value={Gmail}/>
+                placeholder='Nhap gmail'
+                placeholderTextColor='#88888888'
+                style={{ borderWidth: 1, borderRadius: 20, width: 300, height: 30 }}
+                onChangeText={setGmail}
+                value={Gmail} />
 
             <TextInput
-            placeholder='Nhap password'
-            placeholderTextColor='#88888888'
-            style={{borderWidth:1, borderRadius:12, width:300, height:30}}
-            onChangeText={setPass}
-            value={Pass}/>
+                placeholder='Nhap password'
+                placeholderTextColor='#88888888'
+                style={{ borderWidth: 1, borderRadius: 12, width: 300, height: 30 }}
+                onChangeText={setPass}
+                value={Pass} />
 
-            <TouchableOpacity style={{backgroundColor:'red', width:30, height:20,margin:30}}onPress={healogin}>
-                <Text style={{fontSize:20, color:'red'}}>Login</Text>
+            <TextInput
+                placeholder='Nhap password'
+                placeholderTextColor='#88888888'
+                style={{ borderWidth: 1, borderRadius: 12, width: 300, height: 30 }}
+                onChangeText={setPass}
+                value={Pass} />
+
+            <TextInput
+                placeholder='Nhap password'
+                placeholderTextColor='#88888888'
+                style={{ borderWidth: 1, borderRadius: 12, width: 300, height: 30 }}
+                onChangeText={setPass}
+                value={Pass} />
+
+            <TouchableOpacity style={{ backgroundColor: 'red', width: 30, height: 20, margin: 30 }} onPress={healogin}>
+                <Text style={{ fontSize: 20, color: 'red' }}>Login</Text>
             </TouchableOpacity>
 
-            {Error ?<Text style={{fontSize:12, color:'red', fontStyle:'italic'}}>{Error}</Text> :null}
+            {Error ? <Text style={{ fontSize: 12, color: 'red', fontStyle: 'italic' }}>{Error}</Text> : null}
+
+
         </View>
     )
+
 }
 
 export default main
