@@ -61,6 +61,70 @@
 //     console.log('Đủ tuổi mua rượu');
 // }
 
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
+
+const dang_nhap = {
+    "tn_dn": [
+        { 'gmail': 'a', 'pass': '1234' }
+    ]
+}
+
+const main = ({ navigation }) => {
+    const [Gmail, setGmail] = useState('');
+    const [Pass, setPass] = useState('');
+    const [Error, setError] = useState('');
+
+    const healogin = () => {
+        if (Gmail == '' || Pass == '') {
+            setError('Nhap dayt du!')
+            return;
+        }
+
+        const user = dang_nhap.tn_dn.find(uss => uss.gmail == Gmail && uss.pass == Pass);
+
+        if (user) {
+            navigation.navige('Index')
+            setGmail('')
+            setPass('')
+
+            setError('')
+
+        } else {
+            setError('Sai user hoac Pass nhap lai cho dung!')
+        }
+    }
+
+    return (
+        <View style={{backgroundColor:'red', flex:1, padding:20}}>
+            <Text style={{fontSize:20, fontWeight:'bold', color:'red'}}>main</Text>
+            <TextInput
+            placeholder='Nhap gmail'
+            placeholderTextColor='#88888888'
+            style={{borderWidth:1, borderRadius:20, width:300, height:30}}
+            onChangeText={setGmail}
+            value={Gmail}/>
+
+            <TextInput
+            placeholder='Nhap password'
+            placeholderTextColor='#88888888'
+            style={{borderWidth:1, borderRadius:12, width:300, height:30}}
+            onChangeText={setPass}
+            value={Pass}/>
+
+            <TouchableOpacity style={{backgroundColor:'red', width:30, height:20,margin:30}}onPress={healogin}>
+                <Text style={{fontSize:20, color:'red'}}>Login</Text>
+            </TouchableOpacity>
+
+            {Error ?<Text style={{fontSize:12, color:'red', fontStyle:'italic'}}>{Error}</Text> :null}
+        </View>
+    )
+}
+
+export default main
+
+const styles = StyleSheet.create({})
+
 
 
 
